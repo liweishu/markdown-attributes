@@ -71,7 +71,7 @@ export default class Processor {
 
         if (!trys || !trys.length) return;
 
-        // These characters are not allowed to be inside an attribute key.
+        // These characters are not allowed to be inse an attribute key.
         const allowedKeyChars = /[^\t\n\f />"'=]/;
 
         // {: data=value }
@@ -81,17 +81,17 @@ export default class Processor {
         // { #id }
         // currently not allowed due to Obsidian tag
         // TODO: Figure out a workaround.
-        /* const idChar = "#"; */
+        const idChar = "#";
         const attrs: Array<[string, string]> = [];
 
         for (let pair of trys) {
             if (!pair || !pair.length) continue;
 
             //#id
-            /* if (pair.charAt(0) === idChar) {
+            if (pair.charAt(0) === idChar) {
                 attrs.push(["id", pair.slice(1)]);
                 continue;
-            } */
+            }
 
             // .class
             if (pair.charAt(0) === classChar) {
